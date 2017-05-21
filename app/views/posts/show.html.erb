@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Title:</strong>
@@ -10,5 +10,8 @@
   <%= @post.content %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if can? :edit, Post %>
+
+	<%= link_to 'Edit', edit_post_path(@post) %> 
+<%end %>|
 <%= link_to 'Back', posts_path %>

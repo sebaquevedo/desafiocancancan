@@ -9,6 +9,19 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
+<ul>
+    <li><%=  "usuario actual -" + current_user.name %> </li>
+  <li> <%= link_to "editar usuario", edit_user_registration_path %></li>
+  <li> <%= link_to "salir", destroy_user_session_path, method: :delete %></li>
+</ul>
+<% else %>
+<ul>
+  <li> <%= link_to "ingresar ", new_user_session_path %></li>
+  <li> <%= link_to "registrar ", new_user_registration_path %></li>
+  
+</ul>
+<% end %>
   	<p class="notice"><%= notice %></p>
    	<p class="alert"><%= alert %></p>
     <%= yield %>
